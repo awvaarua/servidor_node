@@ -30,7 +30,7 @@ module.exports = {
 	},
 
 	scriptStatus: function (req, res, next) {
-		action.scriptStatus(req.body.pid, function (err, status) {
+		action.scriptStatus(req.params.pid, function (err, status) {
 			return res.send({status: status});
 		});
 	}
