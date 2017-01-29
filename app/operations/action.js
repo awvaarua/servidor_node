@@ -45,13 +45,9 @@ module.exports = {
 	},
 
 	restartNode: function (callback) {
-		
+		callback();
 		var cmd = 'sudo reboot now';
 		exec(cmd, function (error, stdout, stderr) {
-			if (error) {
-				return callback(error);
-			}
-			return callback();
 		});
 	}
 };
