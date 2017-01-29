@@ -13,6 +13,8 @@ module.exports = {
 		
 		var cmd = 'nohup python /home/pi/servidor_node/temp/'+ script.fichero +' '+ args + ' > /dev/null 2>&1 & echo $!';
 		exec(cmd, function (error, stdout, stderr) {
+			console.log("error "+error);
+			console.log("stderr "+stderr);
 			if (error || stderr) {
 				return callback(error ? error : stderr);
 			}
