@@ -36,7 +36,7 @@ module.exports = {
 		var cmd = 'kill '+pid;
 		exec(cmd, function (error, stdout, stderr) {
 			if (error) {
-				return callback(error, '');
+				return callback(null, pid);
 			}
 			return callback(null, pid);
 		});
