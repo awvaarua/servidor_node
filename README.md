@@ -1,6 +1,6 @@
-# Servidor central
+# Servidor node
 
-Proceso de instalación del servidor central:
+Proceso de instalación del servidor nodo:
 
 - Imagen
   - Rasbian Jessie
@@ -8,9 +8,3 @@ Proceso de instalación del servidor central:
 - Node
   - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
   - sudo apt-get install -y nodejs
-
-- Mongo
-  - sudo apt-get update
-  - sudo apt-get upgrade
-  - sudo apt-get install mongodb-server
-  - sudo service mongodb start
