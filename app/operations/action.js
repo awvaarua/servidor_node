@@ -11,7 +11,7 @@ module.exports = {
 			});
 		}catch(e){}
 		
-		var cmd = 'nohup python /Users/ssb/Desktop/'+ script.fichero +' '+ args + ' > /dev/null 2>&1 & echo $!';
+		var cmd = 'nohup python /home/pi/servidor_node/temp/'+ script.fichero +' '+ args + ' > /dev/null 2>&1 & echo $!';
 		exec(cmd, function (error, stdout, stderr) {
 			if (error || stderr) {
 				return callback(error ? error : stderr);
