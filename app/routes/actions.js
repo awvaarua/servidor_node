@@ -52,9 +52,9 @@ module.exports = {
 	},
 
 	restartNode: function (req, res, next) {
-		return res.send({
+		res.send({
 			ok: 'true'
 		});
-		action.restartNode();
+		return action.restartNode();
 	}
 };
