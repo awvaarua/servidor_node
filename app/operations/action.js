@@ -18,5 +18,19 @@ module.exports = {
 			}
 			return callback(null, stdout);
 		});
+	},
+
+	scriptStatus: function (pid, callback) {
+		
+		var cmd = 'kill -0 '+pid;
+		exec(cmd, function (error, stdout, stderr) {
+			console.log(error);
+			console.log(stdout);
+			console.log(stderr);
+			if (error || stderr) {
+				return callback(error ? error : stderr);
+			}
+			return callback(null, stdout);
+		});
 	}
 };

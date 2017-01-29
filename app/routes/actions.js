@@ -4,7 +4,6 @@ var action = require('../operations/action');
 module.exports = {
 
 	start: function (req, res, next) {
-		console.log(req.body);
 		action.start(req.body.script, function (err, pid) {
 			if (err) {
 				return res.send({
@@ -28,5 +27,11 @@ module.exports = {
 
 	status: function (req, res, next) {
 		return res.send();
+	},
+
+	scriptStatus: function (req, res, next) {
+		action.scriptStatus(req.body.pid, function (err, status) {
+			return res.send({status: status});
+		});
 	}
 };
