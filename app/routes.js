@@ -18,4 +18,6 @@ module.exports = function(app) {
     app.post('/action/start', md.isAuthorized, actions.start);
     app.post('/action/file', md.isAuthorized, upload.single( 'file' ), actions.file);
 
+    app.post('/status', md.isAuthorized, upload.single( 'file' ), actions.status);
+
 };

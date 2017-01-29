@@ -24,5 +24,9 @@ module.exports = {
 		return res.send({
 			ok: 'true'
 		});
+	},
+
+	status: function (req, res, next) {
+		return res.send();
 	}
 };
