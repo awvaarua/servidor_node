@@ -49,5 +49,20 @@ module.exports = {
 				pid: parseInt(pid)
 			});
 		});
+	},
+
+	restartNode: function (req, res, next) {
+		action.restartNode(function (err, pid) {
+			if (err) {
+				return res.send({
+					ok: 'false',
+					error: err
+				});
+			}
+
+			return res.send({
+				ok: 'true'
+			});
+		});
 	}
 };

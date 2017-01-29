@@ -4,7 +4,7 @@ module.exports = {
 
 	start: function (script, callback) {
 		var args = '';
-
+		if (!script.argumentos) script.argumentos = [];
 		try{
 			script.argumentos.forEach(function(arg){
 				args += arg.valor+" ";
@@ -39,6 +39,17 @@ module.exports = {
 				return callback(error, '');
 			}
 			return callback(null, pid);
+		});
+	},
+
+	restartNode: function (callback) {
+		
+		var cmd = 'sudo reboot now';
+		exec(cmd, function (error, stdout, stderr) {
+			if (error) {
+				return callback(error);
+			}
+			return callback();
 		});
 	}
 };
