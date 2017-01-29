@@ -24,13 +24,10 @@ module.exports = {
 		
 		var cmd = 'kill -0 '+pid;
 		exec(cmd, function (error, stdout, stderr) {
-			console.log(error);
-			console.log(stdout);
-			console.log(stderr);
-			if (error || stderr) {
-				return callback(error ? error : stderr);
+			if (error) {
+				return callback(null, 'offline');
 			}
-			return callback(null, stdout);
+			return callback(null, 'online');
 		});
 	}
 };
