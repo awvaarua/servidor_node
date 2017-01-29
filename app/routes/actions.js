@@ -33,5 +33,21 @@ module.exports = {
 		action.scriptStatus(req.params.pid, function (err, status) {
 			return res.send({status: status});
 		});
+	},
+
+	stopScript: function (req, res, next) {
+		action.stopScript(req.params.pid, function (err, pid) {
+			if (err) {
+				return res.send({
+					ok: 'false',
+					error: err
+				});
+			}
+
+			return res.send({
+				ok: 'true',
+				pid: parseInt(pid)
+			});
+		});
 	}
 };

@@ -29,5 +29,16 @@ module.exports = {
 			}
 			return callback(null, 'online');
 		});
+	},
+
+	stopScript: function (pid, callback) {
+		
+		var cmd = 'kill '+pid;
+		exec(cmd, function (error, stdout, stderr) {
+			if (error) {
+				return callback(error, '');
+			}
+			return callback(null, pid);
+		});
 	}
 };

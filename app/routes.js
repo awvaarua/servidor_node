@@ -18,6 +18,7 @@ module.exports = function(app) {
     app.post('/action/start', md.isAuthorized, actions.start);
     app.post('/action/file', md.isAuthorized, upload.single( 'file' ), actions.file);
     app.get('/action/script/status/:pid', md.isAuthorized, actions.scriptStatus);
+    app.get('/action/script/stop/:pid', md.isAuthorized, actions.stopScript);
 
     app.post('/status', md.isAuthorized, upload.single( 'file' ), actions.status);
 
