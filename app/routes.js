@@ -1,8 +1,21 @@
-module.exports = function(app, passport) {
+module.exports = function(app) {
 
     var md = require('./middleware/middleware');
 
-    var users = require('./routes/actions');
+    var multer = require('multer');
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, 'temp/')
+        },
+        filename: function (req, file, cb) {
+            cb(null, file.originalname)
+        }
+    });
+    var upload = multer({ storage: storage });
+    var actions = require('./routes/actions');
+
+    
     app.post('/action/start', md.isAuthorized, actions.start);
+    app.post('/action/file', md.isAuthorized, upload.single( 'file' ), actions.file);
 
 };
