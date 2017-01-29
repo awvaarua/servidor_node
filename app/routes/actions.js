@@ -55,8 +55,6 @@ module.exports = {
 		res.send({
 			ok: 'true'
 		});
-		setTimeout(function () {
-			action.restartNode();
-		}, 600);
+		action.restartNode();
 	}
 };
