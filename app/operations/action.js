@@ -44,10 +44,8 @@ module.exports = {
 		});
 	},
 
-	restartNode: function (callback) {
-		callback();
+	restartNode: function () {
 		var cmd = 'sudo reboot now';
-		exec(cmd, function (error, stdout, stderr) {
-		});
+		exec(cmd);
 	}
 };
